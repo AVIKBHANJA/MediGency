@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "keywords": [
+    "medigency",
+    "MediGency",
+    "mediGency",
+    "medical",
+    "doctor"
+  ],
+  "author": "Avik Bhanja",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
