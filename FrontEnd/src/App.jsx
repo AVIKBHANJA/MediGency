@@ -12,6 +12,8 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import Register from "./Register.jsx";
+import Login from "./Login.jsx";
 
 
 
@@ -26,6 +28,8 @@ function App() {
       <Route path="services" element={<Services />} />
       <Route path="contactus" element={<Contactus />} />
       <Route path="feedback" element={<Feedback />} />
+      <Route path="register" element={<Register />} />
+            <Route path="login" element={<Login />} />
           </Route>
         </Routes>
       </Router>

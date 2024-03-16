@@ -1,30 +1,46 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.clear("user");
+    navigate("/login");
+  };
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
+
   return (
     <header className="shadow sticky z-50 top-0">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <div className="font-bold">MediGency™</div>
           <div className="flex items-center lg:order-2">
-            <Link
-              to="#"
+            {!user && <><Link
+              to="/login"
               className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
             >
               Log in
-            </Link>
-            <Link
-              to="#"
+            </Link><Link
+              to="/register"
               className="text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
             >
-              Get started
-            </Link>
+                Get started
+              </Link></>}
+            {user && <button
+              onClick={logout}
+              className="text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+            >
+              Logout
+            </button>
+            }
           </div>
+
           <div className="lg:hidden">
             <button
               onClick={toggleMenu}
